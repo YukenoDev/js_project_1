@@ -1,55 +1,44 @@
-// const obj = {
-// 	a: 1,
-// 	b: 2,
-// 	c: 3
-// };
+/* Задание на урок:
 
-// obj.d = 4;
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
 
-// obj['e'] = 5;
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
 
-// console.log(obj.e);
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
+    }
 
-// console.log(obj);
+Проверить, чтобы все работало без ошибок в консоли */
 
-// let storeName = 'Gucci';
-// const storeDescription = {
-// 	budget: 10000,
-// 	employees: ['Alex', 'Chris', 'David'],
-// 	products: {
-// 		shoes: 500,
-// 		bag: 900
-// 	},
-// 	open: true
-// };
+'use strict';
 
-// console.log(storeDescription);
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
 
-// const answers = [];
+const personalMovieDB = {};
 
-// answers[0] = prompt('What your name');
-// answers[1] = prompt('What your surname');
-// answers[2] = prompt('What your age');
+personalMovieDB['count'] = numberOfFilms;
+personalMovieDB['movies'] = {};
+personalMovieDB['actors'] = {};
+personalMovieDB['genres'] = [];
+personalMovieDB['privat'] = false;
 
-// console.log(answers);
-// console.log(typeof (answers));
+const a = prompt('Один из последних просмотренных фильмов?'),
+	b = prompt('На сколько оцените его?'),
+	c = prompt('Один из последних просмотренных фильмов?'),
+	d = prompt('На сколько оцените его?');
 
-// const activeUsers = {};
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-// activeUsers.user1 = prompt('userName_1');
-// activeUsers.user2 = prompt('userName_1');
-// activeUsers.user3 = prompt('userName_1');
-
-// console.log(activeUsers);
-// console.log(typeof (activeUsers));
-
-let arr = [1, 2, 'три', 'четыре'];
-
-for (let i = 0; i < arr.length; i++) {
-	arr[i] = {
-		0: arr[i]
-	};
-}
-
-console.log(typeof (arr));
-console.log(arr);
+console.log(personalMovieDB);
