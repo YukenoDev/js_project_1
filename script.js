@@ -1,53 +1,53 @@
-/*jshint sub:true*/
-/* Задание на урок:
-
-1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
-
-2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
-отменить ответ или ввести название фильма длинее, чем 50 символов. Если это происходит - 
-возвращаем пользователя к вопросам опять
-
-3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
-"Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
-"Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
-
-4) Потренироваться и переписать цикл еще двумя способами*/
-
 'use strict';
 
-// Код возьмите из предыдущего домашнего задания
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
-
-const personalMovieDB = {};
-
-personalMovieDB['count'] = numberOfFilms;
-personalMovieDB['movies'] = {};
-personalMovieDB['actors'] = {};
-personalMovieDB['genres'] = [];
-personalMovieDB['privat'] = false;
-
-if (personalMovieDB['count'] < 10) {
-	console.log("Просмотрено довольно мало фильмов");
-} else if (personalMovieDB['count'] >= 10 && personalMovieDB['count'] <= 30) {
-	console.log("Вы классический зритель");
-} else if (personalMovieDB['count'] > 30) {
-	console.log("Вы киноман");
-} else {
-	console.log('error');
-}
-
-console.log((personalMovieDB['count']));
+// function sayHello(personName) {
+// 	return `Привет, ${personName}`;
+// }
+// console.log(sayHello('Беку'));
 
 
-for (let i = 0; i < 2; i++) {
-	let a = prompt('Один из последних просмотренных фильмов?');
-	let b = prompt('На сколько оцените его?');
-	if (a != '' && b != '' && a != null && b != null && a.length < 50 && b.length < 50) {
-		personalMovieDB.movies[a] = b;
-		console.log('done');
-	} else {
-		console.log('error');
-		i--;
+// function returnNeighboringNumbers(num) {
+// 	let res = [];
+// 	res[0] = num - 1;
+// 	res[1] = num;
+// 	res[2] = num + 1;
+// 	return res;
+// }
+// console.log(returnNeighboringNumbers(3));
+
+
+// let res = ``;
+
+// function getMathResult(num, prog) {
+// 	let char = `---`;
+// 	for (let i = 0; i < prog; i++) {
+// 		if (typeof (prog) != 'number' && prog <= 0) {
+// 			return num;
+// 		} else {
+// 			res = num + char + (num + num) + char;
+// 		}
+// 	}
+// 	return res;
+// }
+// console.log(getMathResult(5, 0));
+
+
+function getMathResult(num, times) {
+	if (typeof (times) !== 'number' || times <= 0) {
+		return num;
 	}
+	let str = '';
+
+	for (let i = 1; i <= times; i++) {
+		if (i === times) {
+			str += `${num * i}`;
+			// Тут без черточек в конце
+		} else {
+			str += `${num * i}---`;
+			// Это тоже самое, что и
+			// str = str + num * i + "---"
+		}
+	}
+	return str;
 }
-console.log(personalMovieDB);
+getMathResult(10, 5);
